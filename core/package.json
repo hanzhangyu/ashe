@@ -1,0 +1,11 @@
+{
+  "name": "ashe-core",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "vue": "^2.6.10",
+    "vuex": "^3.1.1"
+  }
+}

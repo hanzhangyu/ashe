@@ -8,7 +8,9 @@ const products = [
     name: 'name',
     picture: 'picture',
     price: 1.1,
+    type: 'A',
     timestamp: 1573046591114,
+    delist: 1573057474813,
   },
 ];
 

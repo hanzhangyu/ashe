@@ -1,8 +1,10 @@
 import Vue from 'vue';
+import { createStore } from 'ashe-core/frameworks/vuex';
 import App from './app.vue';
 
 new Vue({
   el: '#app',
+  store: createStore(),
   render(h) {
     return h(App);
   },
