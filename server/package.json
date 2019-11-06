@@ -1,11 +1,24 @@
 {
-  "name": "ashe-server",
+  "name": "ashe",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cross-env NODE_ENV=development pm2 start ecosystem.config.js --no-daemon",
+    "list": "pm2 list",
+    "stop": "pm2 delete ecosystem.config.js",
+    "log": "pm2 logs ams-ashe"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.2.4",
+    "fastify": "^2.10.0",
+    "http-errors": "^1.7.3",
+    "pm2": "^4.1.2",
+    "pm2-logrotate": "^2.7.0"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3"
+  }
 }
