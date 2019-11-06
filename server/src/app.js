@@ -10,6 +10,7 @@ const app = require('fastify')({
 app.decorate('env', env);
 app.decorate('config', config);
 
+env.isDev && app.register(require('fastify-cors'));
 app.register(require('./routes'), { prefix: '/' + env.name });
 
 app.listen(port, host, (err, address) => {

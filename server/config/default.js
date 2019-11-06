@@ -11,32 +11,30 @@ module.exports = {
     },
     views: {
       '/app/product': [
-        [
-          {
-            type: 'form',
-            fields: [
-              {
-                type: 'DatePicker',
-                label: '开始时间',
-                model: 'start_ts',
-              },
-              {
-                type: 'DatePicker',
-                label: '结束时间',
-                model: 'end_ts',
-              },
-              {
-                type: 'Input',
-                label: '搜索',
-                model: 'query',
-              },
-            ],
-          },
-          {
-            type: 'table',
-            pagination: true,
-          },
-        ],
+        {
+          type: 'form',
+          fields: [
+            {
+              type: 'DatePicker',
+              label: '开始时间',
+              model: 'start_ts',
+            },
+            {
+              type: 'DatePicker',
+              label: '结束时间',
+              model: 'end_ts',
+            },
+            {
+              type: 'Input',
+              label: '搜索',
+              model: 'query',
+            },
+          ],
+        },
+        {
+          type: 'table',
+          pagination: true,
+        },
       ],
       '/app/product/create': [
         {
