@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import FormGenerator from './components/FormGenerator.vue';
+import FormGenerator from './components/form/FormGenerator.vue';
 
 export default {
   name: 'App',
@@ -31,7 +31,7 @@ export default {
     const data = await fetch(
       'http://localhost:3000/ashe/app/product/create',
     ).then(res => res.json());
-    console.log(data);
+    console.log('schema:', data);
     this.schemas = data;
     this.process();
   },

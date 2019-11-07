@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { createStore } from 'ashe-core/frameworks/vuex';
+import './components/element';
 import App from './app.vue';
 
 new Vue({
