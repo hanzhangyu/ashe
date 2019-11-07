@@ -41,6 +41,7 @@ module.exports = {
             { label: '价格', key: 'price', tooltip: true },
             { label: '照片集', key: 'picture', component: 'TablePhotoFrame' },
             { label: '备注', key: 'desc', tooltip: true },
+            { label: '倒计时', key: 'delist' },
             {
               label: '操作',
               key: 'operation',

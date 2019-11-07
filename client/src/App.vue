@@ -1,56 +1,32 @@
 <template>
-  <div id="app">
-    {{ hello }}
-    <section v-for="schema in schemas">
-      <component
-        :is="SCHEMA_TYPE_MAP[schema.type]"
-        :schema="schema"
-      ></component>
-    </section>
-    <!--    <FormGenerator :schema=""></FormGenerator>-->
-  </div>
+  <ElContainer>
+    <PaulAside></PaulAside>
+
+    <ElContainer>
+      <!-- https://element.eleme.cn/#/zh-CN/component/container#container-bu-ju-rong-qi TODO 这里有个 bug，实际上是子组件名全等于 el-header 才会生效 -->
+      <el-header>
+        <PaulHeader></PaulHeader>
+      </el-header>
+
+      <ElMain>
+        <RouterView />
+      </ElMain>
+    </ElContainer>
+  </ElContainer>
 </template>
 
 <script>
-import FormGenerator from './components/form/FormGenerator';
-import TableGenerator from './components/table/TableGenerator';
-
+import Headers from './components/header';
+import Asides from './components/aside';
 export default {
   name: 'App',
-  components: { FormGenerator, TableGenerator },
+  components: Object.assign({}, Headers, Asides),
   data() {
-    this.SCHEMA_TYPE_MAP = {
-      form: 'FormGenerator',
-      table: 'TableGenerator',
-    };
     return {
       hello: 'world',
-      schemas: [],
     };
   },
-  async mounted() {
-    const data = await fetch(
-      'http://localhost:3000/ashe/app/product',
-    ).then(res => res.json());
-    console.log('schema:', data);
-    this.schemas = data;
-    this.process();
-  },
-  methods: {
-    // TODO refactor and move to use case or entity
-    process() {
-      const processor = this.processSchemas();
-      this.schemas.forEach(schema => processor[schema.type](schema));
-    },
-    processSchemas() {
-      return {
-        form(schema) {
-          // 提取 model
-          // 提取 rule
-        },
-        table() {},
-      };
-    },
-  },
+  async mounted() {},
+  methods: {},
 };
 </script>

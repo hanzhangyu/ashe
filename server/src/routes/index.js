@@ -1,7 +1,7 @@
 const pageSchema = require('./schemas/page');
 
 module.exports = (app, opts, next) => {
-  ['product'].forEach(name => {
+  ['product', 'skeleton'].forEach(name => {
     const routes = require('./' + name);
     routes.forEach(route => {
       // register view router

@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import { createStore } from 'ashe-core/frameworks/vuex';
+import router from './router';
 import './components/element';
 import App from './app.vue';
 
 new Vue({
   el: '#app',
+  router,
   store: createStore(),
   render(h) {
     return h(App);

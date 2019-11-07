@@ -3,8 +3,20 @@ const product = {
   properties: {
     id: { type: 'string' },
     name: { type: 'string' },
-    picture: { type: 'string' },
+    type: { type: 'string' },
+    desc: { type: 'string' },
+    picture: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          name: { type: 'string' },
+          url: { type: 'string' },
+        },
+      },
+    },
     price: { type: 'number' },
+    delist: { type: 'number' },
   },
 };
 

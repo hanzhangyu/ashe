@@ -4,13 +4,23 @@
 
 const products = [
   {
-    id: 'id',
+    id: 'id123123',
     name: 'name',
-    picture: 'picture',
     price: 1.1,
     type: 'A',
+    picture: [
+      {
+        url: 'https://www.w3schools.com/w3css/img_lights.jpg',
+        name: '图片1',
+      },
+      {
+        url: 'https://www.w3schools.com/w3css/img_forest.jpg',
+        name: '图片2',
+      },
+    ],
     timestamp: 1573046591114,
     delist: 1573057474813,
+    desc: '第一个产品',
   },
 ];
 
