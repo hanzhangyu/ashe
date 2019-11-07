@@ -26,7 +26,9 @@ export default {
       hello: 'world',
     };
   },
-  async mounted() {},
+  async mounted() {
+    console.log(await this.$store.dispatch('schema/getSkeletonSchema'));
+  },
   methods: {},
 };
 </script>

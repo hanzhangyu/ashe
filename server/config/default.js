@@ -15,25 +15,40 @@ module.exports = {
           type: 'form',
           fields: [
             {
-              type: 'DatePicker',
+              type: 'PHDatePicker',
               label: '开始时间',
               model: 'start_ts',
             },
             {
-              type: 'DatePicker',
+              type: 'PHDatePicker',
               label: '结束时间',
               model: 'end_ts',
             },
             {
-              type: 'Input',
+              type: 'PHInput',
               label: '搜索',
               model: 'query',
             },
+            {
+              type: 'PHSubmit',
+              action: 'product/getList',
+              showCancel: false,
+              labelConfirm: '搜索',
+            },
           ],
+          config: {
+            inline: true,
+          },
         },
         {
           type: 'table',
           pagination: true,
+          dataSourceAction: 'product/getList',
+          dataSource: 'product/table',
+          timerUpdater: {
+            timeout: 1000,
+            timerActon: 'product/updateCountdown',
+          },
           columns: [
             { label: '产品编号', key: 'id', tooltip: true },
             { label: '名称', key: 'name', tooltip: true },
@@ -41,7 +56,7 @@ module.exports = {
             { label: '价格', key: 'price', tooltip: true },
             { label: '照片集', key: 'picture', component: 'TablePhotoFrame' },
             { label: '备注', key: 'desc', tooltip: true },
-            { label: '倒计时', key: 'delist' },
+            { label: '倒计时', key: 'countdown' },
             {
               label: '操作',
               key: 'operation',

@@ -1,9 +1,10 @@
 <template>
   <div>
-    <section v-for="schema in schemas">
+    <section v-for="(schema, index) in schemas">
       <component
         :is="SCHEMA_TYPE_MAP[schema.type]"
         :schema="schema"
+        :model="models[index]"
       ></component>
     </section>
   </div>
@@ -22,33 +23,20 @@ export default {
       table: 'TableGenerator',
     };
     return {
-      hello: 'world',
-      schemas: [],
+      models: [],
     };
   },
-  async mounted() {
-    const data = await fetch('http://localhost:3000/ashe/app/product').then(
-      res => res.json(),
-    );
-    console.log('schema:', data);
-    this.schemas = data;
-    this.process();
+  computed: {
+    schemas() {
+      const schemas = this.$store.state.schema.views[this.$route.path];
+      return schemas || [];
+    },
   },
-  methods: {
-    // TODO refactor and move to use case or entity
-    process() {
-      const processor = this.processSchemas();
-      this.schemas.forEach(schema => processor[schema.type](schema));
-    },
-    processSchemas() {
-      return {
-        form(schema) {
-          // 提取 model
-          // 提取 rule
-        },
-        table() {},
-      };
-    },
+  async mounted() {
+    this.models = await this.$store.dispatch(
+      'schema/getPageSchema',
+      this.$route.path,
+    );
   },
 };
 </script>

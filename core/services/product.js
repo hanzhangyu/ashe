@@ -1,12 +1,7 @@
-import axios from '../utils.axios';
+import axios from '../utils/axios';
 
 export const ProductService = {
-  async getList() {
-    return await axios(`/api/product`, {
-      params: {
-        offset: 0,
-        limit: 10,
-      },
-    }).data;
+  async getList(params) {
+    return (await axios(`/api/product`, { params })).data;
   },
 };

@@ -1,10 +1,10 @@
 import { Product } from './product';
 
 export class ProductList {
-  constructor(productList = []) {
+  constructor(productList = [], total = 0, offset = 0) {
     this.list = [];
-    this.total = 0;
-    this.offset = 0;
+    this.total = total;
+    this.offset = offset;
     this.add(productList);
   }
 

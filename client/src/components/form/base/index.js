@@ -4,6 +4,7 @@ import PHUpload from './PHUpload';
 import PHSelect from './PHSelect';
 import PHNumberInput from './PHNumberInput';
 import PHSubmit from './PHSubmit';
+import PHDatePicker from './PHDatePicker';
 
 export default {
   PHInput,
@@ -12,4 +13,5 @@ export default {
   PHSelect,
   PHNumberInput,
   PHSubmit,
+  PHDatePicker,
 };
