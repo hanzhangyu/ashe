@@ -32,3 +32,9 @@ export default {
   methods: {},
 };
 </script>
+
+<style>
+body {
+  margin: 0;
+}
+</style>
