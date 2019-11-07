@@ -14,7 +14,7 @@ module.exports = {
     );
     list.sort((a, b) => b.timestamp - a.timestamp);
     return {
-      list: list.slice(offset * limit, limit),
+      list: list.slice(offset, offset + limit),
       total: list.length,
     };
   },

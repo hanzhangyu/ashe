@@ -1,10 +1,11 @@
 import { Product } from './product';
 
 export class ProductList {
-  constructor(productList = [], total = 0, offset = 0) {
+  constructor({ productList = [], total = 0, offset = 0, query = {} } = {}) {
     this.list = [];
     this.total = total;
     this.offset = offset;
+    this.query = query; // query by form filter，emmm，这里这样写是因为其他的搜索表单是服务器定义的，客户端不知道有哪些
     this.add(productList);
   }
 

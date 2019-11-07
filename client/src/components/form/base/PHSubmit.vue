@@ -21,6 +21,7 @@ export default {
           this.model,
         )}`,
       );
+      this.$store.dispatch(this.field.action, this.model);
     },
   },
 };

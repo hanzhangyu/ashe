@@ -1,28 +1,35 @@
 /**
  * @file db mock
  */
+const item = {
+  id: 'id123123',
+  name: 'name',
+  price: 1.1,
+  type: 'A',
+  picture: [
+    {
+      url: 'https://www.w3schools.com/w3css/img_lights.jpg',
+      name: '图片1',
+    },
+    {
+      url: 'https://www.w3schools.com/w3css/img_forest.jpg',
+      name: '图片2',
+    },
+  ],
+  timestamp: 1573046591114,
+  delist: 1583157474813,
+  desc: '第一个产品',
+};
 
-const products = [
-  {
-    id: 'id123123',
-    name: 'name',
-    price: 1.1,
-    type: 'A',
-    picture: [
-      {
-        url: 'https://www.w3schools.com/w3css/img_lights.jpg',
-        name: '图片1',
-      },
-      {
-        url: 'https://www.w3schools.com/w3css/img_forest.jpg',
-        name: '图片2',
-      },
-    ],
-    timestamp: 1573046591114,
-    delist: 1583157474813,
-    desc: '第一个产品',
-  },
-];
+const products = Array.from({ length: 100 }).map((_, index) => ({
+  ...item,
+  id: item.id + index,
+  name: item.name + index,
+  price: item.price + index,
+  timestamp: item.timestamp + index,
+  delist: item.delist + index * 1000,
+  desc: item.desc + index,
+}));
 
 module.exports = {
   async getList(filter) {

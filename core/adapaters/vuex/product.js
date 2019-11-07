@@ -11,6 +11,7 @@ function state() {
 const getters = {
   table(state) {
     return {
+      total: state.productList.total,
       list: state.productList.list,
       pageSize: state.pageSize,
       currentPage: ~~(state.productList.offset / state.pageSize + 1),
@@ -34,8 +35,17 @@ const mutations = {
 };
 
 const actions = {
-  async getList({ commit }, params) {
-    const productList = await ProductInteractor.getList(params);
+  async getList({ commit, state }, params = {}) {
+    const { currentPage = 1, ...query } = params;
+    const offset = (currentPage - 1) * state.pageSize;
+    const productList = await ProductInteractor.getList({
+      offset,
+      limit: state.pageSize,
+      query: {
+        ...state.productList.query,
+        ...query,
+      },
+    });
     commit('SET_LIST', productList);
   },
   updateCountdown({ commit }) {

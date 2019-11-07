@@ -46,7 +46,7 @@ module.exports = {
           dataSourceAction: 'product/getList',
           dataSource: 'product/table',
           timerUpdater: {
-            timeout: 1000,
+            timeout: 10000,
             timerActon: 'product/updateCountdown',
           },
           columns: [

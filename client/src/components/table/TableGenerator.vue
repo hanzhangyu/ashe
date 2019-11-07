@@ -24,7 +24,10 @@
       v-if="schema.pagination"
       background
       layout="prev, pager, next"
-      :total="1000"
+      :current-page="table.currentPage"
+      :total="table.total"
+      :page-size="table.pageSize"
+      @current-change="handlePageChange"
     >
     </ElPagination>
   </div>
@@ -46,7 +49,9 @@ export default {
   },
   data() {
     this.timer = null;
-    return {};
+    return {
+      loadingTable: false,
+    };
   },
   computed: {
     table() {
@@ -70,6 +75,13 @@ export default {
         await this.$store.dispatch(timerUpdater.timerActon);
         this.timerRun();
       }, timerUpdater.timeout);
+    },
+    async handlePageChange(page) {
+      this.loadingTable = true;
+      await this.$store.dispatch(this.schema.dataSourceAction, {
+        currentPage: page,
+      });
+      this.loadingTable = false;
     },
   },
 };
