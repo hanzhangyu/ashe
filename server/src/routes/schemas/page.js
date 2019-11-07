@@ -7,23 +7,7 @@ const formSchema = {
     },
     fields: {
       type: 'array',
-      items: {
-        type: 'object',
-        properties: {
-          type: {
-            type: 'string',
-            enum: ['DatePicker', 'Input', 'Upload', 'Select', 'NumberInput'],
-          },
-          label: { type: 'string' },
-          model: { type: 'string' },
-          required: { type: 'boolean' },
-          message: { type: 'string' },
-          trigger: { type: 'string', enum: ['change', 'submit'] },
-          default: {},
-          values: { type: 'array', items: {} },
-          condition: { type: 'array', items: {} },
-        },
-      },
+      items: {}, // FIXME 定义这个 schema 通用格式太伤神了，我觉得先灵活为主...
     },
   },
 };
@@ -37,6 +21,10 @@ const tableSchema = {
     },
     pagination: {
       type: 'boolean',
+    },
+    columns: {
+      type: 'array',
+      items: {}, // TODO
     },
     // TODO table 项、备注、删除
   },
