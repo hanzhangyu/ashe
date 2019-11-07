@@ -12,11 +12,12 @@
 </template>
 
 <script>
-import FormGenerator from './components/form/FormGenerator.vue';
+import FormGenerator from './components/form/FormGenerator';
+import TableGenerator from './components/table/TableGenerator';
 
 export default {
   name: 'App',
-  components: { FormGenerator },
+  components: { FormGenerator, TableGenerator },
   data() {
     this.SCHEMA_TYPE_MAP = {
       form: 'FormGenerator',
@@ -29,7 +30,7 @@ export default {
   },
   async mounted() {
     const data = await fetch(
-      'http://localhost:3000/ashe/app/product/create',
+      'http://localhost:3000/ashe/app/product',
     ).then(res => res.json());
     console.log('schema:', data);
     this.schemas = data;

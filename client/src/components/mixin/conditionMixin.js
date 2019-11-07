@@ -33,8 +33,6 @@ export default {
   computed: {
     visible() {
       if (!this.field.condition) return true;
-      console.log(this.model);
-      console.log(this.field.condition);
       return processCondition(this.field.condition, this.model);
     },
   },
