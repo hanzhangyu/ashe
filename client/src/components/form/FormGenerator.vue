@@ -1,5 +1,5 @@
 <template>
-  <ElForm :model="model" :rules="rules" :inline="schema.config.inline">
+  <ElForm :model="model" :rules="rules" :inline="schema.config.inline" label-width="100px">
     <FormItem
       v-for="field in schema.fields"
       :key="field.model"

@@ -35,6 +35,11 @@ module.exports = {
               showCancel: false,
               labelConfirm: '搜索',
             },
+            {
+              type: 'PHLink',
+              link: '/product/create',
+              linkLabel: '创建产品',
+            },
           ],
           config: {
             inline: true,
@@ -75,41 +80,28 @@ module.exports = {
               type: 'PHInput',
               label: '产品名称',
               model: 'name',
+              default: '123',
               rule: [
                 {
                   required: true,
                   message: '请输入产品名称',
                   trigger: 'change',
                 },
-              ],
-            },
-            {
-              type: 'PHPassword',
-              label: '密码',
-              model: 'password',
-              rule: [
-                { required: true, message: '请输入密码', trigger: 'change' },
                 {
                   min: 6,
                   max: 10,
-                  message: '确保密码在6到10个字符之间',
+                  message: '确保名称在6到10个字符之间',
                   trigger: 'change',
                 },
               ],
             },
             {
               type: 'PHUpload',
-              label: '图片',
+              label: '图集',
               model: 'picture',
               action: 'https://jsonplaceholder.typicode.com/posts/',
               accept: '.png,.jpg',
-              default: [
-                {
-                  url:
-                    'blob:http://localhost:1234/23229c78-6726-4360-a5ee-658fa979a090',
-                  name: '图片1',
-                },
-              ],
+              default: [],
               rule: [
                 {
                   required: true,
@@ -134,10 +126,23 @@ module.exports = {
               ],
             },
             {
+              type: 'PHDatePicker',
+              label: '下架时间',
+              model: 'delist',
+            },
+            {
+              type: 'PHInput',
+              label: '备注',
+              model: 'desc',
+            },
+            {
               type: 'PHNumberInput',
               label: '价格',
               model: 'price',
+              tips:
+                '（只有密码为 123456，或者 名字为 123，并且类型为 A 时才可选择）',
               default: 1,
+              min: 0,
               condition: {
                 or: [['password', '==', '123456'], ['name', '==', '123']],
                 and: [['type', '==', 'A']],
@@ -146,6 +151,11 @@ module.exports = {
             {
               type: 'PHSubmit',
               action: 'product/create',
+            },
+            {
+              type: 'PHLink',
+              link: '/product',
+              linkLabel: '返回列表',
             },
           ],
           config: {

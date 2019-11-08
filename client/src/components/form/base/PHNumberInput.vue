@@ -3,6 +3,7 @@
     :placeholder="field.placeholder"
     controls-position="right"
     v-model="model[field.model]"
+    :min="field.min"
   />
 </template>
 

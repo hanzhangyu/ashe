@@ -1,6 +1,7 @@
 <template>
   <ElFormItem v-if="visible" :label="field.label" :prop="field.model">
     <component :is="field.type" :field="field"></component>
+    <p v-if="field.tips">{{field.tips}}</p>
   </ElFormItem>
 </template>
 
