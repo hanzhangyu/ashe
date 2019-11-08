@@ -24,7 +24,14 @@ export class Product {
   }
 
   updateCountDown() {
-    if (this.isDelist) return 0;
+    if (!this.delist) {
+      this.countdown = '--';
+      return;
+    }
+    if (this.isDelist) {
+      this.countdown = 0;
+      return;
+    }
     this.countdown = Math.floor((this.delist - Date.now()) / 1000);
   }
 

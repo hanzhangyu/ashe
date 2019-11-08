@@ -47,9 +47,13 @@ const actions = {
       },
     });
     commit('SET_LIST', productList);
+    commit('UPDATE_COUNTDOWN');
   },
   updateCountdown({ commit }) {
     commit('UPDATE_COUNTDOWN');
+  },
+  async create({ commit, state }, params) {
+    await ProductInteractor.create(params);
   },
 };
 

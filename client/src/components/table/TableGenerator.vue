@@ -62,6 +62,7 @@ export default {
     if (this.schema.dataSourceAction) {
       await this.$store.dispatch(this.schema.dataSourceAction);
     }
+    this.timer && clearTimeout(this.timer);
     this.timer = this.timerRun();
   },
   beforeDestroy() {

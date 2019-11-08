@@ -7,7 +7,7 @@ import App from './app.vue';
 new Vue({
   el: '#app',
   router,
-  store: createStore(),
+  store: createStore(router),
   render(h) {
     return h(App);
   },

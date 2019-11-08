@@ -151,6 +151,8 @@ module.exports = {
             {
               type: 'PHSubmit',
               action: 'product/create',
+              submitSuccessLink: '/product',
+              // submitSuccessAction: '', 不需要，这个 action 可由上一个 action 发起
             },
             {
               type: 'PHLink',

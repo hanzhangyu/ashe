@@ -1,6 +1,8 @@
 /**
  * @file db mock
  */
+let id = 0;
+
 const item = {
   id: 'id123123',
   name: 'name',
@@ -23,7 +25,7 @@ const item = {
 
 const products = Array.from({ length: 100 }).map((_, index) => ({
   ...item,
-  id: item.id + index,
+  id: id++ + '',
   name: item.name + index,
   price: item.price + index,
   timestamp: item.timestamp + index,
@@ -36,10 +38,12 @@ module.exports = {
     // await sleep(1000);
     return filter ? products.filter(filter) : products;
   },
-  async add() {
+  async add(product) {
     // await sleep(1000);
     if (products.length > 1000) return;
-    products.push();
+    product.id = id++ + '';
+    product.timestamp = Date.now();
+    products.push(product);
     // 应该在添加的时候使用二分查找插入的
   },
   async remove(id) {

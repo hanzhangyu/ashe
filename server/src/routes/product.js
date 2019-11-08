@@ -19,8 +19,7 @@ const apiRoutes = [
     // TODO
     url: '/api/product',
     method: 'POST',
-    schema: productSchemas.getList,
-    handler: productController.getList,
+    handler: productController.create,
   },
   {
     // TODO
