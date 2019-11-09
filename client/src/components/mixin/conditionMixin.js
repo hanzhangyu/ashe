@@ -1,5 +1,5 @@
 /**
- * @file 处理条件 DSL
+ * @file process condition DSL
  * {or: [['password', '==', '123456'], ['name', '==', '123']], and: [['type', '==', 'A']]}
  */
 

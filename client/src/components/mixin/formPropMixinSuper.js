@@ -1,3 +1,6 @@
+/**
+ * @file validate field, inject model, inject default
+ */
 import { assertSchema } from '../../utils/helper';
 
 export default schema => ({
