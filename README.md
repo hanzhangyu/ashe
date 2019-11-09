@@ -4,6 +4,10 @@
 
 -   https://www.processon.com/view/link/5dc2a16fe4b04913a28ce076
 
+## 交互原型
+
+-   https://next.modao.cc/app/g24d32zmlm8k2qdn7yloomgirsfd3h
+
 ## Usage
 
 ### 新建页面
@@ -16,6 +20,7 @@
 -   写入配置至数据库
 
 ### 版本说明
+
 -   使用 lerna 保证版本一致
 -   在每个 repo (core/client/server)，或者单独一个库中，书写数据库升级脚本
 

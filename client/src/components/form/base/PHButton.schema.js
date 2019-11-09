@@ -1,9 +1,17 @@
 export default {
   name: 'PHButton',
-  fieldSchema: {
-    labelBtn: {
-      type: String,
-      default: '确定',
+  propsSchema: {
+    field: {
+      labelBtn: {
+        type: String,
+        default: '确定',
+      },
     },
   },
+  // fieldSchema: {
+  //   labelBtn: {
+  //     type: String,
+  //     default: '确定',
+  //   },
+  // },
 };

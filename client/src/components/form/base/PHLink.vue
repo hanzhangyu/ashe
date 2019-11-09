@@ -1,6 +1,6 @@
 <template>
   <router-link :to="field.link" class="el-button el-button--primary">{{
-    field.linkLabel
+    field.labelLink
   }}</router-link>
 </template>
 

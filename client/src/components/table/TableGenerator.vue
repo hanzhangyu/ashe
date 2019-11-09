@@ -70,12 +70,12 @@ export default {
   },
   methods: {
     timerRun() {
-      const { timerUpdater } = this.schema;
-      if (!timerUpdater) return null;
+      const { timerUpdaterTimeout, timerUpdaterAction } = this.schema;
+      if (!timerUpdaterTimeout) return null;
       return setTimeout(async () => {
-        await this.$store.dispatch(timerUpdater.timerActon);
+        await this.$store.dispatch(timerUpdaterAction);
         this.timerRun();
-      }, timerUpdater.timeout);
+      }, timerUpdaterTimeout);
     },
     async handlePageChange(page) {
       this.loadingTable = true;

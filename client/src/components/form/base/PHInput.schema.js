@@ -1,12 +1,23 @@
 export default {
   name: 'PHInput',
-  fieldSchema: {
-    model: {
-      type: String,
-      required: true,
-    },
-    placeholder: {
-      type: String,
+  propsSchema: {
+    field: {
+      model: {
+        type: String,
+        required: true,
+      },
+      placeholder: {
+        type: String,
+      },
     },
   },
+  // fieldSchema: {
+  //   model: {
+  //     type: String,
+  //     required: true,
+  //   },
+  //   placeholder: {
+  //     type: String,
+  //   },
+  // },
 };

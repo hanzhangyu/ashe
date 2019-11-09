@@ -38,22 +38,18 @@ module.exports = {
             {
               type: 'PHLink',
               link: '/product/create',
-              linkLabel: '创建产品',
+              labelLink: '创建产品',
             },
           ],
-          config: {
-            inline: true,
-          },
+          inline: true,
         },
         {
           type: 'table',
           pagination: true,
           dataSourceAction: 'product/getList',
           dataSource: 'product/table',
-          timerUpdater: {
-            timeout: 10000,
-            timerActon: 'product/updateCountdown',
-          },
+          timerUpdaterTimeout: 10000,
+          timerUpdaterAction: 'product/updateCountdown',
           columns: [
             { label: '产品编号', key: 'id', tooltip: true },
             { label: '名称', key: 'name', tooltip: true },
@@ -156,12 +152,9 @@ module.exports = {
             {
               type: 'PHLink',
               link: '/product',
-              linkLabel: '返回列表',
+              labelLink: '返回列表',
             },
           ],
-          config: {
-            // todo
-          },
         },
       ],
       '/app/admin': [
@@ -214,10 +207,7 @@ module.exports = {
               // submitSuccessAction: '', 不需要，这个 action 可由上一个 action 发起
             },
           ],
-          config: {
-            labelWidth: '120px',
-            // todo
-          },
+          labelWidth: '120px',
         },
       ],
     },

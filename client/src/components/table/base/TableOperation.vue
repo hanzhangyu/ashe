@@ -10,9 +10,11 @@
 </template>
 
 <script>
+import tablePropMixinSuper from '../../mixin/tablePropMixinSuper';
+import Schema from './TableOperation.schema';
 export default {
-  name: 'TableOperation',
-  props: ['column'],
+  ...Schema,
+  mixins: [tablePropMixinSuper(Schema)],
   methods: {
     handleDelete() {
       this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {

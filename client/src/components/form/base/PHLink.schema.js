@@ -5,7 +5,7 @@ export default {
       type: String,
       required: true,
     },
-    linkLabel: {
+    labelLink: {
       type: String,
       required: true,
     },
