@@ -3,10 +3,11 @@
 </template>
 
 <script>
+import formPropMixinSuper from '../../mixin/formPropMixinSuper';
+import Schema from './PHPassword.schema';
 export default {
-  name: 'PHPassword',
-  inject: ['model'],
-  props: ['field'],
+  ...Schema,
+  mixins: [formPropMixinSuper(Schema)],
 };
 </script>
 

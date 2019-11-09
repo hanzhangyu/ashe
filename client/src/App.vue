@@ -27,7 +27,8 @@ export default {
     };
   },
   async mounted() {
-    console.log(await this.$store.dispatch('schema/getSkeletonSchema'));
+    await this.$store.dispatch('schema/getSkeletonSchema');
+    // TODO use skeleton schema to create page skeleton (header, aside, main, footer)
   },
   methods: {},
 };

@@ -5,10 +5,11 @@
 </template>
 
 <script>
+import formPropMixinSuper from '../../mixin/formPropMixinSuper';
+import Schema from './PHSelect.schema';
 export default {
-  name: 'PHSelect',
-  inject: ['model'],
-  props: ['field'],
+  ...Schema,
+  mixins: [formPropMixinSuper(Schema)],
 };
 </script>
 

@@ -6,6 +6,7 @@ import PHNumberInput from './PHNumberInput';
 import PHSubmit from './PHSubmit';
 import PHDatePicker from './PHDatePicker';
 import PHLink from './PHLink';
+import PHButton from './PHButton';
 
 export default {
   PHInput,
@@ -16,4 +17,5 @@ export default {
   PHSubmit,
   PHDatePicker,
   PHLink,
+  PHButton,
 };

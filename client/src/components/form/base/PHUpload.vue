@@ -18,10 +18,11 @@
 </template>
 
 <script>
+import formPropMixinSuper from '../../mixin/formPropMixinSuper';
+import Schema from './PHUpload.schema';
 export default {
-  name: 'PHUpload',
-  inject: ['model'],
-  props: ['field'],
+  ...Schema,
+  mixins: [formPropMixinSuper(Schema)],
   data() {
     return {
       dialogImageUrl: '',

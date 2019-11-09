@@ -1,21 +1,23 @@
 <template>
   <div>
     <ElButton type="primary" :loading="loadingConfirm" @click="onSubmit">{{
-      field.labelConfirm || '立即创建'
+      field.labelConfirm || FieldSchema.labelConfirm.default
     }}</ElButton>
 
-    <!--  考虑分离两个按钮  -->
+    <!--  考虑分离两个按钮，手动写 FieldSchema.labelCancel.default 有点恶心啊  -->
     <ElButton v-if="field.showCancel">{{
-      field.labelCancel || '取消'
+      field.labelCancel || FieldSchema.labelCancel.default
     }}</ElButton>
   </div>
 </template>
 
 <script>
+// 如果统一提交接口，那么 submit 可以只需要一个提交地址即可
+import formPropMixinSuper from '../../mixin/formPropMixinSuper';
+import Schema from './PHSubmit.schema';
 export default {
-  name: 'PHSubmit',
-  inject: ['model'],
-  props: ['field'],
+  ...Schema,
+  mixins: [formPropMixinSuper(Schema)],
   data() {
     return {
       loadingConfirm: false,

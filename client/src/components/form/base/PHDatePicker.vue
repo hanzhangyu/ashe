@@ -10,10 +10,11 @@
 </template>
 
 <script>
+import formPropMixinSuper from '../../mixin/formPropMixinSuper';
+import Schema from './PHDatePicker.schema';
 export default {
-  name: 'PHDatePicker',
-  inject: ['model'],
-  props: ['field'],
+  ...Schema,
+  mixins: [formPropMixinSuper(Schema)],
 };
 </script>
 

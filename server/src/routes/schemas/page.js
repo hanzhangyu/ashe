@@ -13,6 +13,7 @@ const formSchema = {
       type: 'object',
       properties: {
         inline: { type: 'boolean' },
+        labelWidth: { type: 'string' },
       },
     },
   },

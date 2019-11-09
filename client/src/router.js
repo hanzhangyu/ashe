@@ -19,6 +19,11 @@ const router = new VueRouter({
       name: 'productCreate',
       component: createTemplatePage,
     },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: createTemplatePage,
+    },
   ],
 });
 

@@ -5,3 +5,4 @@ server/var/
 
 client/dist/
 client/.cache/
+client/coverage/

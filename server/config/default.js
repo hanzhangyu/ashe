@@ -114,7 +114,6 @@ module.exports = {
               type: 'PHSelect',
               label: '类型',
               model: 'type',
-              required: true,
               default: 'A',
               values: ['A', 'B', 'C', 'D'],
               rule: [
@@ -161,6 +160,62 @@ module.exports = {
             },
           ],
           config: {
+            // todo
+          },
+        },
+      ],
+      '/app/admin': [
+        {
+          type: 'form',
+          fields: [
+            {
+              type: 'PHSelect',
+              label: '请选择框架',
+              model: 'framework',
+              default: 'vuex',
+              values: ['vuex', 'redux', 'mobx'],
+            },
+            {
+              type: 'PHInput',
+              label: 'URL',
+              model: 'path',
+              default: '/example',
+              rule: [
+                {
+                  required: true,
+                  message: '请输入 URL',
+                  trigger: 'change',
+                },
+                {
+                  min: 6,
+                  max: 10,
+                  message: '确保名称在6到10个字符之间',
+                  trigger: 'change',
+                },
+              ],
+            },
+            {
+              type: 'PHSelect',
+              label: '请选择业务模块',
+              model: 'domain',
+              default: 'product',
+              values: ['product', 'order'],
+            },
+            {
+              type: 'PHButton',
+              action: 'schema/addSchema',
+              labelBtn: '新增模块',
+            },
+            {
+              type: 'PHSubmit',
+              action: 'product/create',
+              labelConfirm: '创建页面',
+              submitSuccessLink: '/product',
+              // submitSuccessAction: '', 不需要，这个 action 可由上一个 action 发起
+            },
+          ],
+          config: {
+            labelWidth: '120px',
             // todo
           },
         },

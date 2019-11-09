@@ -8,10 +8,11 @@
 </template>
 
 <script>
+import formPropMixinSuper from '../../mixin/formPropMixinSuper';
+import Schema from './PHNumberInput.schema';
 export default {
-  name: 'PHNumberInput',
-  inject: ['model'],
-  props: ['field'],
+  ...Schema,
+  mixins: [formPropMixinSuper(Schema)],
 };
 </script>
 
