@@ -5,6 +5,7 @@ function state() {
   return {
     productList: new ProductList(),
     pageSize: 10,
+    form: null,
   };
 }
 
@@ -16,6 +17,9 @@ const getters = {
       pageSize: state.pageSize,
       currentPage: ~~(state.productList.offset / state.pageSize + 1),
     };
+  },
+  form(state) {
+    return state.form;
   },
 };
 
@@ -32,9 +36,15 @@ const mutations = {
   UPDATE_COUNTDOWN(state) {
     state.productList.list.forEach(product => product.updateCountDown());
   },
+  SYNC_FORM(state, form) {
+    state.form = Object.assign({}, form); // simple copy
+  },
 };
 
 const actions = {
+  syncForm({ commit }, form) {
+    commit('SYNC_FORM', form);
+  },
   async getList({ commit, state }, params = {}) {
     const { currentPage = 1, ...query } = params;
     const offset = (currentPage - 1) * state.pageSize;

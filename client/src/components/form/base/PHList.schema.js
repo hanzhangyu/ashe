@@ -2,10 +2,14 @@ export default {
   name: 'PHList',
   propsSchema: {
     field: {
-      labelBtn: {
+      model: {
         type: String,
-        default: '确定',
+        required: true,
       },
+      // linkEdit: {
+      //   type: String,
+      //   required: true,
+      // },
     },
   },
 };

@@ -13,7 +13,19 @@ const viewRoutes = [
     url: '/app/admin/create',
   },
   {
-    url: '/app/admin/create/schema',
+    url: '/app/admin/page',
+  },
+  {
+    url: '/app/admin/page/:id',
+  },
+  {
+    url: '/app/admin/module',
+  },
+  {
+    url: '/app/admin/field',
+  },
+  {
+    url: '/app/admin/column',
   },
 ];
 

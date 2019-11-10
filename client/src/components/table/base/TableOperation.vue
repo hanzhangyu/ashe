@@ -1,6 +1,12 @@
 <template>
   <div>
     <ElButton
+      type="primary"
+      icon="el-icon-edit"
+      circle
+      @click="handleEdit(row)"
+    ></ElButton>
+    <ElButton
       type="danger"
       icon="el-icon-delete"
       circle
@@ -16,6 +22,9 @@ export default {
   ...Schema,
   mixins: [tablePropMixinSuper(Schema)],
   methods: {
+    handleEdit(row) {
+      this.$router.push(this.column.linkEdit.replace('${id}', row.id));
+    },
     handleDelete() {
       this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
         confirmButtonText: '确定',

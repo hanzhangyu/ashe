@@ -13,6 +13,7 @@ import PHLink from './PHLink';
 import PHButton from './PHButton';
 import PHList from './PHList';
 import PHSwitch from './PHSwitch';
+import PHAsyncMultiSelect from './PHAsyncMultiSelect';
 
 export default {
   PHInput,
@@ -26,4 +27,5 @@ export default {
   PHButton,
   PHList,
   PHSwitch,
+  PHAsyncMultiSelect,
 };

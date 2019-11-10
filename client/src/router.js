@@ -20,13 +20,28 @@ const router = new VueRouter({
       component: createTemplatePage,
     },
     {
-      path: '/admin/create',
-      name: 'adminCreatePage',
+      path: '/admin/page',
+      name: 'adminPageManage',
       component: createTemplatePage,
     },
     {
-      path: '/admin/create/schema',
-      name: 'adminCreatePageSchema',
+      path: '/admin/page/:id',
+      name: 'adminPageManage',
+      component: createTemplatePage,
+    },
+    {
+      path: '/admin/module',
+      name: 'adminModuleManage',
+      component: createTemplatePage,
+    },
+    {
+      path: '/admin/field',
+      name: 'adminFieldManage',
+      component: createTemplatePage,
+    },
+    {
+      path: '/admin/column',
+      name: 'adminColumnManage',
       component: createTemplatePage,
     },
   ],

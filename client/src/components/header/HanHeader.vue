@@ -1,6 +1,6 @@
 <template>
   <div class="header-han">
-    <span>{{ pageUrl }}</span>
+    <span>{{pageName}} - {{ pageUrl }}</span>
   </div>
 </template>
 
@@ -8,6 +8,9 @@
 export default {
   name: 'PaulAside',
   computed: {
+    pageName() {
+      return this.$route.name;
+    },
     pageUrl() {
       return this.$route.path;
     },

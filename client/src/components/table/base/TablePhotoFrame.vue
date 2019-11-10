@@ -14,8 +14,8 @@
 import tablePropMixinSuper from '../../mixin/tablePropMixinSuper';
 import Schema from './TablePhotoFrame.schema';
 export default {
-  name: 'TablePhotoFrame',
-  props: ['row', 'column'],
+  ...Schema,
+  mixins: [tablePropMixinSuper(Schema)],
   data() {
     return {
       dialogVisible: false,

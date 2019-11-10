@@ -9,7 +9,7 @@ function state() {
       footer: null,
     },
     views: {},
-    models: {},
+    // models: {},
   };
 }
 
@@ -20,18 +20,18 @@ const mutations = {
   SET_SKELETON_SCHEMA(state, schema) {
     state.skeleton = schema;
   },
-  PERSIST_MODEL(state, { path, models }) {
-    state.models[path] = models;
-  },
+  // PERSIST_MODEL(state, { path, models }) {
+  //   state.models[path] = models;
+  // },
 };
 
 const actions = {
-  async persistModels({ commit }, payload) {
-    commit('PERSIST_MODEL', payload);
-  },
-  async recoverModels({ state }, path) {
-    return state.models[path];
-  },
+  // async persistModels({ commit }, payload) {
+  //   commit('PERSIST_MODEL', payload);
+  // },
+  // async recoverModels({ state }, path) {
+  //   return state.models[path];
+  // },
   async fetchPageSchema(_, path) {
     const { schemas, models } = await SchemaInteractor.getPageSchema(path);
     return { schemas, path, models }; // 因为 model 需要在组件 create 之前就绪，才好传入初始值

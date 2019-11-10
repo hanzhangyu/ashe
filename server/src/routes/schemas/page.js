@@ -10,8 +10,10 @@ const formSchema = {
       items: {}, // FIXME 定义这个 schema 通用格式太伤神了，我觉得先灵活为主...
     },
     inline: { type: 'boolean' },
-    syncToStore: { type: 'boolean' },
+    // syncToStore: { type: 'boolean' },
     labelWidth: { type: 'string' },
+    modelSource: { type: 'string' },
+    modelSourceAction: { type: 'string' },
   },
 };
 

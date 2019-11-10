@@ -1,3 +1,73 @@
+const createSchema = [
+  {
+    type: 'form',
+    fields: [
+      {
+        type: 'PHInput',
+        label: '模块名',
+        model: 'name',
+        default: '新模块',
+      },
+      {
+        type: 'PHSelect',
+        label: '模块类型',
+        model: 'type',
+        default: 'form',
+        linkEdit: '/admin/create/schema/:schemaId/field/${index}',
+        values: ['form', 'table'],
+      },
+      {
+        type: 'PHList',
+        label: 'column 列表',
+        model: 'columns',
+        linkEdit: '/admin/create/schema/:schemaId/column/${index}',
+        condition: { and: [['type', '==', 'table']] },
+      },
+      {
+        type: 'PHList',
+        label: 'field 列表',
+        model: 'fields',
+        condition: { and: [['type', '==', 'form']] },
+      },
+      {
+        model: 'inline',
+        label: 'inline',
+        condition: { and: [['type', '==', 'form']] },
+        type: 'PHSwitch',
+      },
+      // {
+      //   model: 'syncToStore',
+      //   label: 'syncToStore',
+      //   condition: { and: [['type', '==', 'form']] },
+      //   type: 'PHSwitch',
+      // },
+      {
+        model: 'labelWidth',
+        label: 'labelWidth',
+        placeholder: '120px',
+        condition: { and: [['type', '==', 'form']] },
+        type: 'PHInput',
+      },
+      {
+        model: 'pagination',
+        label: 'pagination',
+        condition: { and: [['type', '==', 'table']] },
+        type: 'PHSwitch',
+      },
+      {
+        type: 'PHButton',
+        action: 'schema/addSchema',
+        labelBtn: '确认新增该模块',
+      },
+      {
+        type: 'PHLink',
+        link: '/admin/create',
+        labelLink: '取消并返回新建页面',
+      },
+    ],
+  },
+];
+
 module.exports = {
   host: '0.0.0.0',
   port: '3000',
@@ -42,7 +112,9 @@ module.exports = {
             },
           ],
           inline: true,
-          syncToStore: true,
+          // syncToStore: true,
+          modelSource: 'product/form',
+          modelSourceAction: 'product/syncForm',
         },
         {
           type: 'table',
@@ -158,6 +230,7 @@ module.exports = {
           ],
         },
       ],
+      // region refactoring
       '/app/admin/create': [
         {
           type: 'form',
@@ -238,76 +311,169 @@ module.exports = {
             },
           ],
           labelWidth: '120px',
-          syncToStore: true,
+          // syncToStore: true,
         },
       ],
-      '/app/admin/create/schema': [
+      '/app/admin/create/schema/': createSchema,
+      '/app/admin/create/schema/:id': createSchema,
+      // endregion
+
+      '/app/admin/page': [
         {
           type: 'form',
           fields: [
             {
               type: 'PHInput',
-              label: '模块名',
+              label: '页面名称',
               model: 'name',
-              default: '新模块',
+              rule: [
+                {
+                  required: true,
+                  message: '请输入页面名称',
+                  trigger: 'change',
+                },
+              ],
             },
             {
               type: 'PHSelect',
-              label: '模块类型',
-              model: 'type',
-              default: 'form',
-              values: ['form', 'table'],
+              label: '适用客户端',
+              model: 'presenter',
+              default: 'ashe-client',
+              values: ['ashe-client', 'ashe-tv', 'ashe-mobile'],
             },
             {
-              type: 'PHList',
-              label: 'column 列表',
-              model: 'columns',
-              condition: { and: [['type', '==', 'table']] },
+              type: 'PHSelect',
+              label: '框架',
+              model: 'framework',
+              default: 'vuex',
+              values: ['vuex', 'redux', 'mobx'],
             },
             {
-              type: 'PHList',
-              label: 'field 列表',
-              model: 'fields',
-              condition: { and: [['type', '==', 'form']] },
-            },
-            {
-              model: 'inline',
-              label: 'inline',
-              condition: { and: [['type', '==', 'form']] },
-              type: 'PHSwitch',
-            },
-            {
-              model: 'syncToStore',
-              label: 'syncToStore',
-              condition: { and: [['type', '==', 'form']] },
-              type: 'PHSwitch',
-            },
-            {
-              model: 'labelWidth',
-              label: 'labelWidth',
-              placeholder: '120px',
-              condition: { and: [['type', '==', 'form']] },
               type: 'PHInput',
+              label: 'URL',
+              model: 'path',
+              default: '/example',
+              rule: [
+                {
+                  required: true,
+                  message: '请输入 URL',
+                  trigger: 'change',
+                },
+              ],
             },
             {
-              model: 'pagination',
-              label: 'pagination',
-              condition: { and: [['type', '==', 'table']] },
-              type: 'PHSwitch',
+              type: 'PHAsyncMultiSelect',
+              label: '模块列表',
+              model: 'modules',
+              dataSourceAction: 'adminModule/searchOption',
+              default: [],
             },
             {
-              type: 'PHButton',
-              action: 'schema/addSchema',
-              labelBtn: '确认新增该模块',
+              type: 'PHSubmit',
+              action: 'admin/createPage',
+              labelConfirm: '创建页面',
+            },
+          ],
+          labelWidth: '120px',
+          // syncToStore: true,
+        },
+        {
+          type: 'table',
+          pagination: true,
+          dataSourceAction: 'adminPage/getList',
+          dataSource: 'adminPage/table',
+          columns: [
+            { label: 'ID', key: 'id', tooltip: true },
+            { label: 'URL', key: 'url', tooltip: true },
+            { label: '名称', key: 'name', tooltip: true },
+            { label: '适用客户端', key: 'presenter', tooltip: true },
+            { label: '框架', key: 'framework', tooltip: true },
+            {
+              label: '模块列表',
+              key: 'modules',
+              component: 'TableLinkListPopover',
+              title: '所有模块（点击跳转）',
             },
             {
-              type: 'PHLink',
-              link: '/admin/create',
-              labelLink: '取消并返回新建页面',
+              label: '操作',
+              key: 'operation',
+              component: 'TableOperation',
+              deleteAction: 'adminPage/delete',
+              linkEdit: '/admin/page/${id}',
             },
           ],
         },
       ],
+      '/app/admin/page/:id': [
+        {
+          type: 'form',
+          fields: [
+            {
+              type: 'PHInput',
+              label: '页面名称',
+              model: 'name',
+              rule: [
+                {
+                  required: true,
+                  message: '请输入页面名称',
+                  trigger: 'change',
+                },
+              ],
+            },
+            {
+              type: 'PHSelect',
+              label: '适用客户端',
+              model: 'presenter',
+              default: 'ashe-client',
+              values: ['ashe-client', 'ashe-tv', 'ashe-mobile'],
+            },
+            {
+              type: 'PHSelect',
+              label: '框架',
+              model: 'framework',
+              default: 'vuex',
+              values: ['vuex', 'redux', 'mobx'],
+            },
+            {
+              type: 'PHInput',
+              label: 'URL',
+              model: 'path',
+              default: '/example',
+              rule: [
+                {
+                  required: true,
+                  message: '请输入 URL',
+                  trigger: 'change',
+                },
+              ],
+            },
+            {
+              type: 'PHAsyncMultiSelect',
+              label: '模块列表',
+              model: 'modules',
+              dataSourceAction: 'adminModule/searchOption',
+              default: [],
+            },
+            {
+              type: 'PHSubmit',
+              action: 'admin/editPage',
+              labelConfirm: '修改页面',
+            },
+            {
+              type: 'PHLink',
+              link: '/admin/page',
+              labelLink: '返回页面列表页',
+            },
+          ],
+          labelWidth: '120px',
+          // syncToStore: true,
+          modelSource: 'adminPage/form',
+          modelSourceAction: 'adminPage/syncForm',
+        },
+      ],
+      '/app/admin/module': [],
+      '/app/admin/field': [],
+      '/app/admin/column': [],
     },
   },
 };

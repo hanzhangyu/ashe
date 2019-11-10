@@ -7,6 +7,7 @@
 ## 交互原型
 
 -   https://next.modao.cc/app/g24d32zmlm8k2qdn7yloomgirsfd3h
+    -   该原型已废弃，原因在于，创建页面很简单，但是管理的时候，你会发现 页面、模块、field、column 全部耦合在一起
 
 ## Usage
 

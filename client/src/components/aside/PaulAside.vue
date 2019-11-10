@@ -19,7 +19,11 @@
         <template slot="title"
           ><i class="el-icon-s-tools"></i>系统管理</template
         >
-        <ElMenuItem index="/admin/create">页面管理</ElMenuItem>
+        <ElMenuItem index="/admin/page">页面管理</ElMenuItem>
+        <ElMenuItem index="/admin/module">模块管理</ElMenuItem>
+        <ElMenuItem index="/admin/field">表单域管理</ElMenuItem>
+        <ElMenuItem index="/admin/column">表格管理</ElMenuItem>
+        <ElMenuItem index="/admin/route">路由管理 (TODO,参数)</ElMenuItem>
       </ElSubmenu>
     </ElMenu>
   </ElAside>
