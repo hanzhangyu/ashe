@@ -1,5 +1,7 @@
 # Ashe
 
+[设计文档](./ABOUT.md)
+
 ## 架构设计
 
 -   https://www.processon.com/view/link/5dc2a16fe4b04913a28ce076
@@ -10,6 +12,23 @@
     -   该原型已废弃，原因在于，创建页面很简单，但是管理的时候，你会发现 页面、模块、field、column 全部耦合在一起
 
 ## Usage
+
+### requirement
+
+-   node >= 11.1.0
+-   mongodb has the database in server/config folder
+
+### development
+
+```bash
+$ git clone https://github.com/hanzhangyu/ashe
+$ cd server
+$ npm install && npm run setup && npm run dev
+$ cd ../core/server
+$ npm install && npm run schema
+$ cd ../core/client
+$ npm install && npm run schema && npm run dev
+```
 
 ### 新建页面
 

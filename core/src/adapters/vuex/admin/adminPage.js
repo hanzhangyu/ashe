@@ -1,4 +1,4 @@
-import { AdminInteractor } from '../../useCases';
+import { AdminInteractor } from '../../../useCases';
 
 function state() {
   return {};
