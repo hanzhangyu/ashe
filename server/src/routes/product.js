@@ -1,5 +1,5 @@
 const productController = require('../controllers/product');
-const productSchemas = require('./schemas/product');
+const productSchemas = require('../schemas/product');
 
 const apiRoutes = [
   {

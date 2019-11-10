@@ -19,11 +19,13 @@
  *  - table 中 一定包含 {type: 'table', columns: []}
  *  - form/table 组件 field/column 的 schema 结构为
  *    {
- *      form/table: {组件名: {组件 field 字段: 该字段 schema}},
- *      PHInput: {model: {type: String, required: true}}, // form 的 field 例子
- *      TableOperation: {deleteAction: {type: String, required: true}}, // table 的 column 例子
- *     }
- *  - from column 组件保留字段 type 用于标记哪个 form field 组件
+ *      form/table: {
+ *        组件名: {组件 field 字段: 该字段 schema}},
+ *        PHInput: {model: {type: String, required: true}}, // form 的 field 例子
+ *        TableOperation: {deleteAction: {type: String, required: true}}, // table 的 column 例子
+ *      }
+ *    }
+ *  - from column 组件保留字段 type 用于标记哪个 form field 组件, tips 用于标记 form-item 的提示，label 用于编辑 form-item 的 label
  *  - table schema 组件保留字段 label 标记列的标题, key 标记列的数据字段, tooltip 标记列是否需要 tooltip（这个似乎可以去掉）
  */
 

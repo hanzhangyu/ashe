@@ -3,11 +3,11 @@ export default {
   propsSchema: {
     field: {
       link: {
-        type: String,
+        type: 'string',
         required: true,
       },
       labelLink: {
-        type: String,
+        type: 'string',
         required: true,
       },
     },

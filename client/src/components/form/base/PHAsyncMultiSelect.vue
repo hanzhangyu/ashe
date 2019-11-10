@@ -32,7 +32,6 @@ export default {
   methods: {
     async remoteMethod(query) {
       this.loading = true;
-      console.log('search');
       this.options = await this.$store.dispatch(
         this.field.dataSourceAction,
         query,

@@ -3,7 +3,7 @@ export default {
   propsSchema: {
     field: {
       labelBtn: {
-        type: String,
+        type: 'string',
         default: '确定',
       },
     },

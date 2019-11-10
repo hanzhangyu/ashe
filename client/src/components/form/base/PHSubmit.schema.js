@@ -3,23 +3,23 @@ export default {
   propsSchema: {
     field: {
       labelConfirm: {
-        type: String,
+        type: 'string',
         default: '立即创建',
       },
       labelCancel: {
-        type: String,
+        type: 'string',
         default: '取消',
       },
       showCancel: {
-        type: Boolean,
+        type: 'boolean',
         default: false,
       },
       action: {
-        type: String,
+        type: 'string',
         required: true,
       },
       submitSuccessLink: {
-        type: String,
+        type: 'string',
       },
     },
   },

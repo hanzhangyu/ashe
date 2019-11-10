@@ -3,15 +3,15 @@ export default {
   propsSchema: {
     field: {
       model: {
-        type: String,
+        type: 'string',
         required: true,
       },
       action: {
-        type: String,
+        type: 'string',
         required: true,
       },
       accept: {
-        type: String,
+        type: 'string',
         required: true,
       },
     },

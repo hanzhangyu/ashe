@@ -3,7 +3,7 @@ export default {
   propsSchema: {
     column: {
       deleteAction: {
-        type: String,
+        type: 'string',
         required: true,
       },
     },

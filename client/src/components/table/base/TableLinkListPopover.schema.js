@@ -3,7 +3,7 @@ export default {
   propsSchema: {
     column: {
       title: {
-        type: String,
+        type: 'string',
         required: true,
       },
     },

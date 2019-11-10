@@ -35,18 +35,13 @@
 
 <script>
 import baseComponent from './base';
+import generatorPropMixinSuper from '../mixin/generatorPropMixinSuper';
+import Schema from './TableGenerator.schema';
 export default {
-  name: 'TableGenerator',
+  ...Schema,
+  mixins: [generatorPropMixinSuper(Schema)],
+
   components: baseComponent,
-  props: {
-    schema: Object,
-    model: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
-  },
   data() {
     this.timer = null;
     return {

@@ -12,6 +12,10 @@ app.decorate('config', config);
 
 env.isDev && app.register(require('fastify-cors'));
 app.register(require('./routes'), { prefix: '/' + env.name });
+app.register(require('fastify-mongodb'), {
+  forceClose: true,
+  url: `mongodb://${db.user}:${db.pwd}@${db.host}:${db.port}/${db.database}`,
+});
 
 app.listen(port, host, (err, address) => {
   if (err) throw err;

@@ -3,16 +3,16 @@ export default {
   propsSchema: {
     field: {
       model: {
-        type: String,
+        type: 'string',
         required: true,
       },
       placeholder: {
-        type: String,
+        type: 'string',
       },
       values: {
-        type: Array,
+        type: 'array',
         items: {
-          type: String,
+          type: 'string',
         },
       },
     },

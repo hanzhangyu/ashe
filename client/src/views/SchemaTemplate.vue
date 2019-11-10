@@ -55,7 +55,7 @@ export default {
       const schemas = this.$store.state.schema.views[path];
 
       if (schemas) {
-        // reenter, recover from store （这考虑到一个页面的多个表单可以选用不同的同步逻辑，代码有点多呀）
+        // reenter, recover from store
         this.generateModel({
           models: await this.$store.dispatch(
             'schema/getModelFromSchema',

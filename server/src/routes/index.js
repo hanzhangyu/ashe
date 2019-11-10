@@ -1,4 +1,4 @@
-const pageSchema = require('./schemas/page');
+const pageSchema = require('../schemas/page');
 
 module.exports = (app, opts, next) => {
   ['product', 'skeleton', 'admin'].forEach(name => {
