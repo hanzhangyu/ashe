@@ -11,6 +11,16 @@ const apiRoutes = [
     method: 'POST',
     handler: adminSchemaController.uploadGenerator,
   },
+  {
+    url: '/api/admin/schema/framework',
+    method: 'POST',
+    handler: adminSchemaController.uploadFramework,
+  },
+  {
+    url: '/api/admin/schema/adapter',
+    method: 'POST',
+    handler: adminSchemaController.uploadAdapter,
+  },
 ];
 
 module.exports = apiRoutes;

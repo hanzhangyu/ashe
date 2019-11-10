@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { state, modules } from '../adapaters/vuex';
+import { state, modules } from '../adapters/vuex';
 
 Vue.use(Vuex);
 

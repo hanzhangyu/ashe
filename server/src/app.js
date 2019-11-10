@@ -1,7 +1,7 @@
 const env = require('./lib/env');
 const config = require('config');
 
-const { host, port } = config;
+const { host, port, db } = config;
 
 const app = require('fastify')({
   logger: true,

@@ -1,21 +1,18 @@
 module.exports = [
   {
     id: 1,
-    url: '/product/list',
+    url: '/product',
     name: '产品列表页',
     presenter: 'ashe-client',
     framework: 'vuex',
-    modules: [
-      {
-        id: '123123',
-        name: '产品搜索模块',
-        link: '/admin/module/123123',
-      },
-      {
-        id: '123124',
-        name: '产品列表模块',
-        link: '/admin/module/123124',
-      },
-    ],
+    modules: [1, 2],
+  },
+  {
+    id: 2,
+    url: '/product/create',
+    name: '产品创建页',
+    presenter: 'ashe-client',
+    framework: 'vuex',
+    modules: [3],
   },
 ];

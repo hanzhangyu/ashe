@@ -1,5 +1,10 @@
 <template>
-  <ElForm :model="model" :rules="rules" :inline="schema.inline" :label-width="schema.labelWidth || '100px'">
+  <ElForm
+    :model="model"
+    :rules="rules"
+    :inline="schema.inline"
+    :label-width="schema.labelWidth || '100px'"
+  >
     <FormItem
       v-for="field in schema.fields"
       :key="field.model"
@@ -10,24 +15,18 @@
 
 <script>
 import FormItem from './FormItem';
+import generatorPropMixinSuper from '../mixin/generatorPropMixinSuper';
+import Schema from './FormGenerator.schema';
 export default {
-  name: 'FormGenerator',
+  ...Schema,
+  mixins: [generatorPropMixinSuper(Schema)],
+
   components: { FormItem },
   provide() {
     return {
       model: this.model,
     };
   },
-  props: {
-    schema: Object,
-    model: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
-  },
-
   computed: {
     rules() {
       return this.schema.fields.reduce((rules, field) => {

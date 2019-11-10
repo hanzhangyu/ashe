@@ -38,6 +38,7 @@ async function collectComponentSchema(dir, type, schemas) {
   schemas[type] = compSchema;
 }
 
+// 可以提供一个 @ashe/share 的库
 function simpleRequest(url, body) {
   return new Promise((resolve, reject) => {
     const options = {
