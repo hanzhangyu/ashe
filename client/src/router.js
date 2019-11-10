@@ -20,8 +20,13 @@ const router = new VueRouter({
       component: createTemplatePage,
     },
     {
-      path: '/admin',
-      name: 'admin',
+      path: '/admin/create',
+      name: 'adminCreatePage',
+      component: createTemplatePage,
+    },
+    {
+      path: '/admin/create/schema',
+      name: 'adminCreatePageSchema',
       component: createTemplatePage,
     },
   ],

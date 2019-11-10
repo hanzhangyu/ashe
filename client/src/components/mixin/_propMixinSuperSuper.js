@@ -26,15 +26,15 @@ function validator(schema, propKey, prop) {
     .includes(false);
 }
 
-export default base => schema =>
-  Object.assign(base, {
+export default ({ base, propsBase }) => schema =>
+  Object.assign({}, base, {
     props: Object.keys(schema.propsSchema).reduce((props, propKey) => {
       props[propKey] = {
         validator: validator.bind(null, schema, propKey),
       };
       return props;
-    }, {}),
-    // 先这样绑上去吧
+    }, propsBase || {}), // 缺省参数必须放在最里面，防止共有对象
+    // 先这样绑上去吧，毕竟 vue 的 template 不能 destructing assignment，不然就可以自动绑定默认值了
     data() {
       this.PropsSchema = schema.propsSchema;
       return {};

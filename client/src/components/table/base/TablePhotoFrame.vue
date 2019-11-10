@@ -2,7 +2,7 @@
   <div>
     <i class="el-icon-picture" @click="handleOpen"></i>
     <ElDialog :visible.sync="dialogVisible">
-      <template v-for="(pic, index) in data">
+      <template v-for="(pic, index) in row[column.key]">
         <h3 :key="index">{{ pic.name }}</h3>
         <img width="100%" :src="pic.url" :alt="pic.name" :title="pic.name" />
       </template>
@@ -11,9 +11,11 @@
 </template>
 
 <script>
+import tablePropMixinSuper from '../../mixin/tablePropMixinSuper';
+import Schema from './TablePhotoFrame.schema';
 export default {
   name: 'TablePhotoFrame',
-  props: ['data'],
+  props: ['row', 'column'],
   data() {
     return {
       dialogVisible: false,

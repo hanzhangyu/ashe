@@ -8,10 +8,4 @@ export default {
       },
     },
   },
-  // fieldSchema: {
-  //   labelBtn: {
-  //     type: String,
-  //     default: '确定',
-  //   },
-  // },
 };

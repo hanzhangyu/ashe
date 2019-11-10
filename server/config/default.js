@@ -4,7 +4,7 @@ module.exports = {
 
   page: {
     skeleton: {
-      header: 'PaulHeader',
+      header: 'HanHeader',
       aside: 'PaulAside',
       main: 'PaulMain',
       footer: 'PaulFooter',
@@ -42,6 +42,7 @@ module.exports = {
             },
           ],
           inline: true,
+          syncToStore: true,
         },
         {
           type: 'table',
@@ -157,7 +158,7 @@ module.exports = {
           ],
         },
       ],
-      '/app/admin': [
+      '/app/admin/create': [
         {
           type: 'form',
           fields: [
@@ -179,12 +180,6 @@ module.exports = {
                   message: '请输入 URL',
                   trigger: 'change',
                 },
-                {
-                  min: 6,
-                  max: 10,
-                  message: '确保名称在6到10个字符之间',
-                  trigger: 'change',
-                },
               ],
             },
             {
@@ -195,19 +190,122 @@ module.exports = {
               values: ['product', 'order'],
             },
             {
-              type: 'PHButton',
+              type: 'PHList',
               action: 'schema/addSchema',
-              labelBtn: '新增模块',
+              label: '模块列表',
+              model: 'schemas',
+              default: [
+                {
+                  name: '产品列表页',
+                  type: 'table',
+                  pagination: true,
+                  dataSourceAction: 'product/getList',
+                  dataSource: 'product/table',
+                  timerUpdaterTimeout: 10000,
+                  timerUpdaterAction: 'product/updateCountdown',
+                  columns: [
+                    { label: '产品编号', key: 'id', tooltip: true },
+                    { label: '名称', key: 'name', tooltip: true },
+                    { label: '类型', key: 'type', tooltip: true },
+                    { label: '价格', key: 'price', tooltip: true },
+                    {
+                      label: '照片集',
+                      key: 'picture',
+                      component: 'TablePhotoFrame',
+                    },
+                    { label: '备注', key: 'desc', tooltip: true },
+                    { label: '倒计时', key: 'countdown' },
+                    {
+                      label: '操作',
+                      key: 'operation',
+                      component: 'TableOperation',
+                      deleteAction: 'product/delete',
+                      updateAction: 'product/openUpdater',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'PHLink',
+              link: '/admin/create/schema',
+              labelLink: '新增模块',
             },
             {
               type: 'PHSubmit',
-              action: 'product/create',
+              action: 'admin/createPage',
               labelConfirm: '创建页面',
-              submitSuccessLink: '/product',
-              // submitSuccessAction: '', 不需要，这个 action 可由上一个 action 发起
             },
           ],
           labelWidth: '120px',
+          syncToStore: true,
+        },
+      ],
+      '/app/admin/create/schema': [
+        {
+          type: 'form',
+          fields: [
+            {
+              type: 'PHInput',
+              label: '模块名',
+              model: 'name',
+              default: '新模块',
+            },
+            {
+              type: 'PHSelect',
+              label: '模块类型',
+              model: 'type',
+              default: 'form',
+              values: ['form', 'table'],
+            },
+            {
+              type: 'PHList',
+              label: 'column 列表',
+              model: 'columns',
+              condition: { and: [['type', '==', 'table']] },
+            },
+            {
+              type: 'PHList',
+              label: 'field 列表',
+              model: 'fields',
+              condition: { and: [['type', '==', 'form']] },
+            },
+            {
+              model: 'inline',
+              label: 'inline',
+              condition: { and: [['type', '==', 'form']] },
+              type: 'PHSwitch',
+            },
+            {
+              model: 'syncToStore',
+              label: 'syncToStore',
+              condition: { and: [['type', '==', 'form']] },
+              type: 'PHSwitch',
+            },
+            {
+              model: 'labelWidth',
+              label: 'labelWidth',
+              placeholder: '120px',
+              condition: { and: [['type', '==', 'form']] },
+              type: 'PHInput',
+            },
+            {
+              model: 'pagination',
+              label: 'pagination',
+              condition: { and: [['type', '==', 'table']] },
+              type: 'PHSwitch',
+            },
+            {
+              type: 'PHButton',
+              action: 'schema/addSchema',
+              labelBtn: '确认新增该模块',
+            },
+            {
+              type: 'PHLink',
+              link: '/admin/create',
+              labelLink: '取消并返回新建页面',
+            },
+          ],
         },
       ],
     },

@@ -1,12 +1,12 @@
 <template>
   <div>
     <ElButton type="primary" :loading="loadingConfirm" @click="onSubmit">{{
-      field.labelConfirm || FieldSchema.labelConfirm.default
+      field.labelConfirm || PropsSchema.field.labelConfirm.default
     }}</ElButton>
 
     <!--  考虑分离两个按钮，手动写 FieldSchema.labelCancel.default 有点恶心啊  -->
     <ElButton v-if="field.showCancel">{{
-      field.labelCancel || FieldSchema.labelCancel.default
+      field.labelCancel || PropsSchema.field.labelCancel.default
     }}</ElButton>
   </div>
 </template>

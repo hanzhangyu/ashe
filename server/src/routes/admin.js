@@ -10,7 +10,10 @@ const apiRoutes = [
 
 const viewRoutes = [
   {
-    url: '/app/admin',
+    url: '/app/admin/create',
+  },
+  {
+    url: '/app/admin/create/schema',
   },
 ];
 

@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <ElButton :loading="loadingConfirm" @click="handleClick">{{
-      field.labelBtn || PropsSchema.field.labelBtn.default
-    }}</ElButton>
-  </div>
+  <ElButton :loading="loadingConfirm" @click="handleClick">{{
+    field.labelBtn || PropsSchema.field.labelBtn.default
+  }}</ElButton>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
-  <div class="header-paul">
-    <span>{{ pageName }}</span>
+  <div class="header-han">
+    <span>{{ pageUrl }}</span>
   </div>
 </template>
 
@@ -8,15 +8,15 @@
 export default {
   name: 'PaulAside',
   computed: {
-    pageName() {
-      return this.$route.name;
+    pageUrl() {
+      return this.$route.path;
     },
   },
 };
 </script>
 
 <style scoped>
-.header-paul {
+.header-han {
   text-align: center;
   font-size: 18px;
   background-color: rgb(44, 42, 43);

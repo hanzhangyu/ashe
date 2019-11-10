@@ -11,7 +11,7 @@
           <component
             v-if="column.component"
             :is="column.component"
-            :data="row[column.key]"
+            :row="row"
             :column="column"
           ></component>
           <template v-else>

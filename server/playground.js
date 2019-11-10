@@ -10,6 +10,7 @@
  *    admin 是在 ashe-client 上设计的
  *    所以通过 ashe-client 去造出 ashe-tv、ashe-mobile 的时候的确需要定死 admin page 的schema （总不能自己修改自己的 schema 吧，超验骇客看多了不好）
  *    所以问题是： 得着重考虑一下 admin page schema 的抽象定义
+ *    （可以将 管理员的配置至于 带有 page creator 的 ashe-client）
  *
  * TODO required 的 rule
  *
@@ -33,6 +34,9 @@ const PresenterListSchema = ['ashe-client', 'ashe-tv', 'ashe-mobile'];
 // region template config schema
 const FormConfigTemplateSchema = {
   inline: {
+    type: Boolean,
+  },
+  syncToStore: {
     type: Boolean,
   },
   labelWidth: {

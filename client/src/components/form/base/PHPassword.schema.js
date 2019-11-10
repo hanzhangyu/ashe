@@ -1,9 +1,11 @@
 export default {
   name: 'PHPassword',
-  fieldSchema: {
-    model: {
-      type: String,
-      required: true,
+  propsSchema: {
+    field: {
+      model: {
+        type: String,
+        required: true,
+      },
     },
   },
 };

@@ -1,16 +1,10 @@
 export default {
-  name: 'PHNumberInput',
+  name: 'PHSwitch',
   propsSchema: {
     field: {
       model: {
         type: String,
         required: true,
-      },
-      placeholder: {
-        type: String,
-      },
-      min: {
-        type: Number,
       },
     },
   },

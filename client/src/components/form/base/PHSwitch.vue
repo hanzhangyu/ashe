@@ -1,12 +1,10 @@
 <template>
-  <router-link :to="field.link" class="el-button el-button--info">{{
-    field.labelLink
-  }}</router-link>
+  <ElSwitch v-model="model[field.model]"></ElSwitch>
 </template>
 
 <script>
 import formPropMixinSuper from '../../mixin/formPropMixinSuper';
-import Schema from './PHLink.schema';
+import Schema from './PHSwitch.schema';
 export default {
   ...Schema,
   mixins: [formPropMixinSuper(Schema)],

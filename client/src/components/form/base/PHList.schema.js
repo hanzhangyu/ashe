@@ -1,10 +1,10 @@
 export default {
-  name: 'PHDatePicker',
+  name: 'PHList',
   propsSchema: {
     field: {
-      model: {
+      labelBtn: {
         type: String,
-        required: true,
+        default: '确定',
       },
     },
   },
