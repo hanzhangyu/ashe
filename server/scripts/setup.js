@@ -2,7 +2,7 @@ const { db: dbConfig } = require('config');
 const MongoClient = require('mongodb').MongoClient;
 const readline = require('readline');
 
-const DEFAULTDATA = [
+const DEFAULT_DATA = [
   {
     key: 'product',
     name: '产品',
@@ -10,6 +10,7 @@ const DEFAULTDATA = [
   {
     key: 'page',
     name: '页面',
+    indexs: ['id', 'url'],
   },
   {
     key: 'module',
@@ -63,7 +64,7 @@ async function main() {
   }
 
   // insert initial data
-  for (const { key, name, indexs = ['id'] } of DEFAULTDATA[Symbol.iterator]()) {
+  for (const { key, name, indexs = ['id'] } of DEFAULT_DATA[Symbol.iterator]()) {
     const demoData = require('../data/' + key);
     collection = await db.collection(key);
     await collection.insertMany(demoData);

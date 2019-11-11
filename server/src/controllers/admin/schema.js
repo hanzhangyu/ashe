@@ -1,5 +1,5 @@
 /**
- * @file 将 DB 操作移至 model
+ * @file FIXME 将 DB 操作移至 model
  */
 exports.uploadComponent = async function(request, reply) {
   const componentSchemas = request.body;

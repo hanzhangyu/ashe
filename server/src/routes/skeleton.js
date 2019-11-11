@@ -1,3 +1,4 @@
+// FIXME move to admin skeleton setting
 const viewRoutes = [
   {
     url: '/app/skeleton',

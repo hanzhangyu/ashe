@@ -11,11 +11,15 @@ app.decorate('env', env);
 app.decorate('config', config);
 
 env.isDev && app.register(require('fastify-cors'));
-app.register(require('./routes'), { prefix: '/' + env.name });
-app.register(require('fastify-mongodb'), {
-  forceClose: true,
-  url: `mongodb://${db.user}:${db.pwd}@${db.host}:${db.port}/${db.database}`,
-});
+
+// IOC
+app
+  .register(require('./routes'), { prefix: '/' + env.name })
+  .register(require('fastify-mongodb'), {
+    forceClose: true,
+    url: `mongodb://${db.user}:${db.pwd}@${db.host}:${db.port}/${db.database}`,
+  })
+  .register(require('./models'));
 
 app.listen(port, host, (err, address) => {
   if (err) throw err;

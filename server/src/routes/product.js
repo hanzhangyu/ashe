@@ -35,14 +35,4 @@ const apiRoutes = [
     handler: productController.getList,
   },
 ];
-
-const viewRoutes = [
-  {
-    url: '/app/product',
-  },
-  {
-    url: '/app/product/create',
-  },
-];
-
-module.exports = [...apiRoutes, ...viewRoutes];
+module.exports = apiRoutes;

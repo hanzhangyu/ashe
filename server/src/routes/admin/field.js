@@ -3,9 +3,9 @@
 const apiRoutes = [];
 
 const viewRoutes = [
-    {
-        url: '/app/admin/field',
-    },
+    // {
+    //     url: '/app/admin/field',
+    // },
 ];
 
 module.exports = [...apiRoutes, ...viewRoutes];
