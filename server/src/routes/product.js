@@ -9,17 +9,16 @@ const apiRoutes = [
     handler: productController.getList,
   },
   {
+    url: '/api/product',
+    method: 'POST',
+    handler: productController.create,
+  },
+  {
     // TODO
     url: '/api/product/:id',
     method: 'GET',
     schema: productSchemas.getList,
     handler: productController.getList,
-  },
-  {
-    // TODO
-    url: '/api/product',
-    method: 'POST',
-    handler: productController.create,
   },
   {
     // TODO

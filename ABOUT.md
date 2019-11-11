@@ -1,6 +1,6 @@
 # 技术文档
 
-> 暂时还有 page creator 还没有完成
+> 暂时还有 page creator 还没有完成，基于 schema 生成配置，来生成 admin 的 page creator 里面所有组件配置 [试验](./server/playground.js)
 
 ## 分层架构
 
@@ -29,8 +29,6 @@
 -   https://www.processon.com/view/link/5dc2a16fe4b04913a28ce076
 
 ### 关于 schema
-
-（除了 admin page 的 schema，因为它是 ashe-client 所实现的功能，该表单的配置也是基于 ashe-client 实现的）
 
 #### 概念描述
 

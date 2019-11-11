@@ -36,7 +36,7 @@ export default {
   methods: {
     handleSuccess(response, file, fileList) {
       console.log('success:', file);
-      this.model[this.field.model].push({ url: file.url, name: file.name });
+      this.model[this.field.model].push({ url: file.url, name: file.name }); // FIXME store is shadow clone
     },
     handleRemove(file, fileList) {
       console.log(file, fileList);
