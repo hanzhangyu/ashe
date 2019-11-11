@@ -2,7 +2,14 @@ const fp = require('fastify-plugin');
 const { asyncReduce } = require('../utils/helper');
 
 const fastifyModels = async (app, opts) => {
-  const Models = ['page', 'module', 'product'].map(moduleName => {
+  const Models = [
+    // models filename
+    'page',
+    'module',
+    'product',
+    'column',
+    'field',
+  ].map(moduleName => {
     return require(`./${moduleName}`);
   });
 

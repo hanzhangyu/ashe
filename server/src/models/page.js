@@ -9,12 +9,10 @@ module.exports = class Page extends BaseModel {
     return this.collection.findOne({ url });
   }
   async getWithModuleByUrl(url) {
-    const pageSchema = await this.collection.findOne({ url });
-    const moduleSchemas = await this.models.module.getWithSubByIds(
-      pageSchema.modules,
+    const pageData = await this.collection.findOne({ url });
+    pageData.modules = await this.models.module.getWithSubByIds(
+      pageData.modules,
     );
-    pageSchema.modules = moduleSchemas;
-    console.log(pageSchema);
-    return pageSchema;
+    return pageData;
   }
 };
