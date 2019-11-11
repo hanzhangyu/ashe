@@ -1,5 +1,4 @@
 const BaseModel = require('./baseModel');
-const { getListFromCursor } = require('../utils/helper');
 
 class Product extends BaseModel {
   constructor() {
@@ -20,7 +19,7 @@ class Product extends BaseModel {
       })
       .skip(offset)
       .limit(limit);
-    const list = await getListFromCursor(cursor);
+    const list = await this.getListFromCursor(cursor);
     const total = await this.collection.estimatedDocumentCount();
     return {
       list,

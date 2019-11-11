@@ -24,10 +24,19 @@
 $ git clone https://github.com/hanzhangyu/ashe
 $ cd server
 $ npm install && npm run setup && npm run dev
-$ cd ../core/server
+$ cd ../core
 $ npm install && npm run schema
-$ cd ../core/client
+$ cd ../client
 $ npm install && npm run schema && npm run dev
+```
+
+### reset database
+
+```bash
+$ cd server
+$ npm run setup && npm run dev
+$ cd ../core && npm run schema
+$ cd ../client && npm run schema
 ```
 
 ### 新建页面

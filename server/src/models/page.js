@@ -15,4 +15,25 @@ module.exports = class Page extends BaseModel {
     );
     return pageData;
   }
+
+  async getList({ limit = 10, offset = 0 }) {
+    const cursor = await this.collection
+      .find()
+      .skip(offset)
+      .limit(limit);
+    const list = await this.getListFromCursor(cursor);
+    const total = await this.collection.estimatedDocumentCount();
+    const moduleDatas = await this.getModuleByPages(list);
+    list.forEach((page, index) => (page.modules = moduleDatas[index]));
+    return {
+      list,
+      total,
+    };
+  }
+
+  getModuleByPages(pageDatas) {
+    return Promise.all(
+      pageDatas.map(pageData => this.models.module.getByIds(pageData.modules)),
+    );
+  }
 };

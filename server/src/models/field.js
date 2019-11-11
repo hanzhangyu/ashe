@@ -1,5 +1,4 @@
 const BaseModel = require('./baseModel');
-const { getListFromCursor } = require('../utils/helper');
 
 class Field extends BaseModel {
   constructor() {
@@ -12,7 +11,7 @@ class Field extends BaseModel {
 
   async getByIds(ids) {
     const cursor = await this.collection.find({ id: { $in: ids } });
-    return getListFromCursor(cursor);
+    return this.getListFromCursor(cursor);
   }
 }
 

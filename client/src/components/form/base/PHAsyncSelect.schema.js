@@ -1,5 +1,5 @@
 export default {
-  name: 'PHAsyncMultiSelect',
+  name: 'PHAsyncSelect',
   propsSchema: {
     field: {
       model: {
@@ -12,6 +12,9 @@ export default {
       dataSourceAction: {
         type: 'string',
         required: true,
+      },
+      multiple: {
+        type: 'boolean',
       },
     },
   },

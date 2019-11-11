@@ -5,6 +5,7 @@ module.exports = [
     type: 'PHDatePicker',
     label: '开始时间',
     model: 'start_ts',
+    deleted: false,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ module.exports = [
     type: 'PHDatePicker',
     label: '结束时间',
     model: 'end_ts',
+    deleted: false,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ module.exports = [
     type: 'PHInput',
     label: '搜索',
     model: 'query',
+    deleted: false,
   },
   {
     id: 4,
@@ -27,6 +30,7 @@ module.exports = [
     action: 'product/getList',
     showCancel: false,
     labelConfirm: '搜索',
+    deleted: false,
   },
   {
     id: 5,
@@ -34,6 +38,7 @@ module.exports = [
     type: 'PHLink',
     link: '/product/create',
     labelLink: '创建产品',
+    deleted: false,
   },
   {
     id: 6,
@@ -55,6 +60,7 @@ module.exports = [
         trigger: 'change',
       },
     ],
+    deleted: false,
   },
   {
     id: 7,
@@ -72,6 +78,7 @@ module.exports = [
         trigger: 'change',
       },
     ],
+    deleted: false,
   },
   {
     id: 8,
@@ -88,6 +95,7 @@ module.exports = [
         trigger: 'change',
       },
     ],
+    deleted: false,
   },
   {
     id: 9,
@@ -95,6 +103,7 @@ module.exports = [
     type: 'PHDatePicker',
     label: '下架时间',
     model: 'delist',
+    deleted: false,
   },
   {
     id: 10,
@@ -102,6 +111,7 @@ module.exports = [
     type: 'PHInput',
     label: '备注',
     model: 'desc',
+    deleted: false,
   },
   {
     id: 11,
@@ -116,6 +126,7 @@ module.exports = [
       or: [['password', '==', '123456'], ['name', '==', '123']],
       and: [['type', '==', 'A']],
     },
+    deleted: false,
   },
   {
     id: 12,
@@ -123,6 +134,7 @@ module.exports = [
     type: 'PHSubmit',
     action: 'product/create',
     submitSuccessLink: '/product',
+    deleted: false,
   },
   {
     id: 13,
@@ -130,5 +142,75 @@ module.exports = [
     type: 'PHLink',
     link: '/product',
     labelLink: '返回列表',
+    deleted: false,
+  },
+  {
+    id: 14,
+    name: '管理创建 page - 页面名称',
+    type: 'PHInput',
+    label: '页面名称',
+    model: 'name',
+    rule: [
+      {
+        required: true,
+        message: '请输入页面名称',
+        trigger: 'change',
+      },
+    ],
+    deleted: false,
+  },
+  {
+    id: 15,
+    name: '管理创建 page - 适用客户端',
+    type: 'PHSelect',
+    label: '适用客户端',
+    model: 'presenter',
+    default: 'ashe-client',
+    values: ['ashe-client', 'ashe-tv', 'ashe-mobile'],
+    deleted: false,
+  },
+  {
+    id: 16,
+    name: '管理创建 page - 框架',
+    type: 'PHSelect',
+    label: '框架',
+    model: 'framework',
+    default: 'vuex',
+    values: ['vuex', 'redux', 'mobx'],
+    deleted: false,
+  },
+  {
+    id: 17,
+    name: '管理创建 page - URL',
+    type: 'PHInput',
+    label: 'URL',
+    model: 'path',
+    default: '/example',
+    rule: [
+      {
+        required: true,
+        message: '请输入 URL',
+        trigger: 'change',
+      },
+    ],
+    deleted: false,
+  },
+  {
+    id: 18,
+    name: '管理创建 page - 模块列表',
+    type: 'PHAsyncSelect',
+    label: '模块列表',
+    model: 'modules',
+    dataSourceAction: 'adminModule/searchOption',
+    default: [],
+    deleted: false,
+  },
+  {
+    id: 19,
+    name: '管理创建 page - 提交',
+    type: 'PHSubmit',
+    action: 'admin/createPage',
+    labelConfirm: '创建页面',
+    deleted: false,
   },
 ];

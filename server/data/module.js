@@ -9,6 +9,7 @@ module.exports = [
       modelSource: 'product/form',
       modelSourceAction: 'product/syncForm',
     },
+    deleted: false,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ module.exports = [
       timerUpdaterTimeout: 10000,
       timerUpdaterAction: 'product/updateCountdown',
     },
+    deleted: false,
   },
   {
     id: 3,
@@ -29,5 +31,28 @@ module.exports = [
     type: 'form',
     fields: [6, 7, 8, 9, 10, 11, 12, 13],
     config: {},
+    deleted: false,
+  },
+  {
+    id: 4,
+    name: '管理 page - 创建 page 模块',
+    type: 'form',
+    fields: [14, 15, 16, 17, 18, 19],
+    config: {
+      labelWidth: '120px',
+
+    },
+    deleted: false,
+  },
+  {
+    id: 5,
+    name: '管理 page - page 列表',
+    type: 'table',
+    columns: [9, 10, 11, 12, 13, 14, 15],
+    config: {
+      dataSourceAction: 'adminPage/getList',
+      dataSource: 'adminPage/table',
+    },
+    deleted: false,
   },
 ];

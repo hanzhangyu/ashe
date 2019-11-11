@@ -1,4 +1,4 @@
-const pageSchema = require('../schemas/page');
+// const schemaSchema = require('../schemas/schema');
 
 module.exports = (app, opts, next) => {
   [

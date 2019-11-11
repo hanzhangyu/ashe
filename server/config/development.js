@@ -362,7 +362,7 @@ module.exports = {
     //           ],
     //         },
     //         {
-    //           type: 'PHAsyncMultiSelect',
+    //           type: 'PHAsyncSelect',
     //           label: '模块列表',
     //           model: 'modules',
     //           dataSourceAction: 'adminModule/searchOption',
@@ -448,7 +448,7 @@ module.exports = {
     //           ],
     //         },
     //         {
-    //           type: 'PHAsyncMultiSelect',
+    //           type: 'PHAsyncSelect',
     //           label: '模块列表',
     //           model: 'modules',
     //           dataSourceAction: 'adminModule/searchOption',

@@ -1,5 +1,4 @@
 const BaseModel = require('./baseModel');
-const { getListFromCursor } = require('../utils/helper');
 const { MODULE_SUB_MODEL_MAP, MODULE_SUB_KEY_MAP } = require('../utils/const');
 
 class Module extends BaseModel {
@@ -7,18 +6,28 @@ class Module extends BaseModel {
     super('module');
   }
 
+  formatData(moduleData) {
+    moduleData.link = '/admin/module/' + moduleData.id;
+    return moduleData;
+  }
+
   async get(id) {
-    return this.collection.findOne({ id });
+    return this.formatData(await this.collection.findOne({ id }));
+  }
+
+  async getByIds(ids) {
+    const cursor = await this.collection.find({ id: { $in: ids } });
+    const moduleDatas = await this.getListFromCursor(cursor);
+    return moduleDatas.map(this.formatData);
   }
   async getWithSub(id) {
     return this.collection.findOne({ id });
   }
   async getWithSubByIds(ids) {
-    const moduleSchemaCursor = await this.collection.find({ id: { $in: ids } });
-    const moduleSchemas = await getListFromCursor(moduleSchemaCursor);
+    const moduleDatas = await this.getByIds(ids);
     // typescript is angel
     await Promise.all(
-      moduleSchemas.map(async moduleData => {
+      moduleDatas.map(async moduleData => {
         const dataKey = MODULE_SUB_KEY_MAP[moduleData.type];
         const modelKey = MODULE_SUB_MODEL_MAP[moduleData.type];
         moduleData[dataKey] = await this.models[modelKey].getByIds(
@@ -26,7 +35,7 @@ class Module extends BaseModel {
         );
       }),
     );
-    return moduleSchemas;
+    return moduleDatas;
   }
   async getSub(moduleData) {
     if (moduleData.type === 'field') {

@@ -19,6 +19,7 @@ exports.getPageSchema = async function(request, reply) {
       const subSchema = { ...subData };
       delete subSchema._id;
       delete subSchema.id;
+      delete subSchema.deleted;
       return subSchema;
     });
 

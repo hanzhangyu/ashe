@@ -1,7 +1,12 @@
 const schemaController = require('../controllers/schema');
-const pageSchema = require('../schemas/page');
+// const schemaSchema = require('../schemas/schema');
 
-const urls = ['/app/product', '/app/product/create'];
+const urls = [
+  // FIXME all page schema route
+  '/app/product',
+  '/app/product/create',
+  '/app/admin/page',
+];
 
 const pageRoutes = urls.map(url => ({
   url,

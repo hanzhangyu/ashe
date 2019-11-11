@@ -1,14 +1,12 @@
-// const adminController = require('../controllers/admin');
+const pageController = require('../../controllers/admin/page');
+const pageSchemas = require('../../schemas/page');
 
-const apiRoutes = [];
-
-const viewRoutes = [
-  // {
-  //   url: '/app/admin/page',
-  // },
-  // {
-  //   url: '/app/admin/page/:id',
-  // },
+const apiRoutes = [
+  {
+    url: '/api/admin/page',
+    method: 'GET',
+    schema: pageSchemas.getList,
+    handler: pageController.getList,
+  },
 ];
-
-module.exports = [...apiRoutes, ...viewRoutes];
+module.exports = apiRoutes;

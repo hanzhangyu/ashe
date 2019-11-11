@@ -4,7 +4,7 @@
     :placeholder="field.placeholder"
     :remote-method="remoteMethod"
     :loading="loading"
-    multiple
+    :multiple="field.multiple"
     filterable
     remote
   >
