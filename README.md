@@ -1,16 +1,5 @@
 # Ashe
 
-[设计文档](./ABOUT.md)
-
-## 架构设计
-
--   https://www.processon.com/view/link/5dc2a16fe4b04913a28ce076
-
-## 交互原型
-
--   https://next.modao.cc/app/g24d32zmlm8k2qdn7yloomgirsfd3h
-    -   该原型已废弃，原因在于，创建页面很简单，但是管理的时候，你会发现 页面、模块、field、column 全部耦合在一起
-
 ## Usage
 
 ### requirement
@@ -55,4 +44,10 @@ $ cd ../client && npm run schema
 
 ## Environment
 
-昨天刚升级了 WSL，今天重启后发现打不开了，[issues](https://github.com/microsoft/WSL/issues/4177) 还未修复，所以使用 window 环境先
+~~昨天刚升级了 WSL，今天重启后发现打不开了，[issues](https://github.com/microsoft/WSL/issues/4177) 还未修复，所以使用 window 环境先~~
+
+wsl2 目前会与某些修改了 winsock 的软件产生冲突
+
+```bash
+netsh winsock reset
+```
