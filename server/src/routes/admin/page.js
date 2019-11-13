@@ -8,5 +8,11 @@ const apiRoutes = [
     schema: pageSchemas.getList,
     handler: pageController.getList,
   },
+  {
+    url: '/api/admin/page',
+    method: 'POST',
+    schema: pageSchemas.create,
+    handler: pageController.create,
+  },
 ];
 module.exports = apiRoutes;

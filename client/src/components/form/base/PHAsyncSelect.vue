@@ -5,14 +5,14 @@
     :remote-method="remoteMethod"
     :loading="loading"
     :multiple="field.multiple"
-    filterable
+    :filterable="field.filterable"
     remote
   >
     <ElOption
       v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value"
+      :key="item.id"
+      :label="item.name"
+      :value="item.id"
     ></ElOption>
   </ElSelect>
 </template>
@@ -32,10 +32,10 @@ export default {
   methods: {
     async remoteMethod(query) {
       this.loading = true;
-      this.options = await this.$store.dispatch(
+      this.options = (await this.$store.dispatch(
         this.field.dataSourceAction,
         query,
-      ); // 从 store 获取数据也未尝不可
+      )).list; // 从 store 获取数据也未尝不可
       this.loading = false;
     },
   },

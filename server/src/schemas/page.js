@@ -20,7 +20,7 @@ const page = {
 };
 
 exports.getList = {
-  description: 'get product list',
+  description: 'get page list',
   querystring: {
     type: 'object',
     properties: {
@@ -36,6 +36,20 @@ exports.getList = {
         list: { type: 'array', items: page },
         total: { type: 'number' },
       },
+    },
+  },
+};
+
+exports.create = {
+  description: 'create page list',
+  body: {
+    type: 'object',
+    properties: {
+      name: { type: 'string' },
+      path: { type: 'string' },
+      presenter: { type: 'string' },
+      framework: { type: 'string' },
+      modules: { type: 'array', items: { type: 'number' } },
     },
   },
 };

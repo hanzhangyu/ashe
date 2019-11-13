@@ -31,6 +31,7 @@ class Product extends BaseModel {
     await this.collection.insertOne({
       id: total + 1,
       timestamp: Date.now(),
+      deleted: false,
       ...product,
     });
   }

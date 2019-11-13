@@ -16,6 +16,9 @@ export default {
       multiple: {
         type: 'boolean',
       },
+      filterable: {
+        type: 'boolean',
+      },
     },
   },
 };

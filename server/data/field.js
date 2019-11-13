@@ -184,7 +184,7 @@ module.exports = [
     name: '管理创建 page - URL',
     type: 'PHInput',
     label: 'URL',
-    model: 'path',
+    model: 'url',
     default: '/example',
     rule: [
       {
@@ -201,7 +201,8 @@ module.exports = [
     type: 'PHAsyncSelect',
     label: '模块列表',
     model: 'modules',
-    dataSourceAction: 'adminModule/searchOption',
+    multiple: true,
+    dataSourceAction: 'adminModule/getList',
     default: [],
     deleted: false,
   },
@@ -209,7 +210,7 @@ module.exports = [
     id: 19,
     name: '管理创建 page - 提交',
     type: 'PHSubmit',
-    action: 'admin/createPage',
+    action: 'adminPage/create',
     labelConfirm: '创建页面',
     deleted: false,
   },

@@ -36,4 +36,13 @@ module.exports = class Page extends BaseModel {
       pageDatas.map(pageData => this.models.module.getByIds(pageData.modules)),
     );
   }
+
+  async add(pageData) {
+    const total = await this.collection.estimatedDocumentCount();
+    await this.collection.insertOne({
+      id: total + 1,
+      deleted: false,
+      ...pageData,
+    });
+  }
 };

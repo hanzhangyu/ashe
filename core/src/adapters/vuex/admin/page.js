@@ -4,7 +4,7 @@ function state() {
   return {
     pageList: [],
     total: 0,
-    pageSize: 10,
+    pageSize: 100,
   };
 }
 
@@ -32,6 +32,10 @@ const actions = {
       limit: state.pageSize,
     });
     commit('SET_LIST', data);
+  },
+  async create({ dispatch, state }, params) {
+    await AdminPageInteractor.create(params);
+    await dispatch('getList');
   },
 };
 

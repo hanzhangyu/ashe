@@ -41,6 +41,30 @@ class Module extends BaseModel {
     if (moduleData.type === 'field') {
     }
   }
+
+  async getList({ limit = 10, offset = 0 }) {
+    const cursor = await this.collection
+      .find()
+      .skip(offset)
+      .limit(limit);
+    const list = await this.getListFromCursor(cursor);
+    const total = await this.collection.estimatedDocumentCount();
+    // const moduleDatas = await this.getModuleByPages(list);
+    // list.forEach((page, index) => (page.modules = moduleDatas[index]));
+    return {
+      list,
+      total,
+    };
+  }
+
+  async add(moduleData) {
+    const total = await this.collection.estimatedDocumentCount();
+    await this.collection.insertOne({
+      id: total + 1,
+      deleted: false,
+      ...moduleData,
+    });
+  }
 }
 
 module.exports = Module;

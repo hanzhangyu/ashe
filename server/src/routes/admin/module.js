@@ -1,11 +1,12 @@
-// const adminController = require('../controllers/admin');
+const moduleController = require('../../controllers/admin/module');
+const moduleSchemas = require('../../schemas/module');
 
-const apiRoutes = [];
-
-const viewRoutes = [
-    // {
-    //     url: '/app/admin/module',
-    // },
+const apiRoutes = [
+    {
+        url: '/api/admin/module',
+        method: 'GET',
+        schema: moduleSchemas.getList,
+        handler: moduleController.getList,
+    },
 ];
-
-module.exports = [...apiRoutes, ...viewRoutes];
+module.exports = apiRoutes;
